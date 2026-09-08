@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для Вали ❤️</title>
+  <meta name="description" content="Маленький сайт о большой любви к Вале.">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #3a1f2a;
+      background: #fff8fa;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      background:
+        radial-gradient(circle at 20% 20%, #ffdbe6 0 10%, transparent 28%),
+        radial-gradient(circle at 80% 30%, #ffe9ef 0 8%, transparent 25%),
+        linear-gradient(135deg, #fff7fa, #ffe8ef);
+    }
+
+    .hero-card {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      font: 700 13px/1.2 Arial, sans-serif;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c45276;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(58px, 12vw, 130px);
+      line-height: .9;
+      margin: 0;
+      color: #8f294e;
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: clamp(20px, 3vw, 30px);
+      line-height: 1.45;
+      max-width: 650px;
+      margin: 30px auto;
+    }
+
+    .heart {
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 15px 28px;
+      border-radius: 999px;
+      background: #9f3158;
+      color: white;
+      font: 700 15px Arial, sans-serif;
+      box-shadow: 0 12px 30px #9f315833;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 16px 34px #9f31584d; }
+
+    .floating {
+      position: absolute;
+      font-size: 24px;
+      opacity: .5;
+      animation: float 6s ease-in-out infinite;
+    }
+    .f1 { top: 12%; left: 8%; }
+    .f2 { top: 25%; right: 9%; animation-delay: 1s; }
+    .f3 { bottom: 15%; left: 13%; animation-delay: 2s; }
+    .f4 { bottom: 10%; right: 14%; animation-delay: 3s; }
+
+    section { padding: 95px 20px; }
+    .wrap { max-width: 1050px; margin: auto; }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 500;
+      margin: 0 0 15px;
+      color: #7d2745;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #69404f;
+    }
+
+    .reasons {
+      background: #fff;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .card {
+      padding: 32px;
+      border: 1px solid #f3d6df;
+      border-radius: 24px;
+      background: #fffafb;
+      box-shadow: 0 12px 35px #7d274510;
+    }
+    .card .icon { font-size: 36px; }
+    .card h3 { font-size: 25px; margin: 18px 0 10px; font-weight: 500; }
+    .card p { font: 16px/1.7 Arial, sans-serif; color: #69404f; }
+
+    .letter {
+      background: #f9e7ed;
+    }
+    .letter-paper {
+      max-width: 780px;
+      margin: auto;
+      padding: clamp(30px, 7vw, 65px);
+      background: #fffdfb;
+      border-radius: 5px;
+      box-shadow: 0 20px 60px #5f1c3417;
+      transform: rotate(-.4deg);
+    }
+    .letter-paper p {
+      font-size: 21px;
+      line-height: 1.9;
+      margin: 0 0 20px;
+    }
+    .signature {
+      margin-top: 30px;
+      text-align: right;
+      font-size: 27px;
+      color: #8f294e;
+    }
+
+    .promise {
+      text-align: center;
+      background: #8f294e;
+      color: white;
+    }
+    .promise .section-title { color: white; }
+    .promise .section-subtitle { color: #ffeaf0; }
+    .promise-box {
+      max-width: 750px;
+      margin: auto;
+      padding: 38px;
+      border: 1px solid #ffffff55;
+      border-radius: 25px;
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #55182d;
+      color: #f9dfe7;
+      font: 14px Arial, sans-serif;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.16); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    @media (max-width: 750px) {
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 70px 18px; }
+      .card { padding: 27px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="floating f1">♡</span>
+    <span class="floating f2">♥</span>
+    <span class="floating f3">✦</span>
+    <span class="floating f4">♡</span>
+
+    <div class="hero-card">
+      <div class="eyebrow">для моей любимой</div>
+      <h1>Валечки <span class="heart">♥</span></h1>
+      <p>
+        
+      </p>
+      <a class="button" href="#letter">Прочитать моё письмо ↓</a>
+    </div>
+  </header>
+
+  <section class="reasons">
+    <div class="wrap">
+      <h2 class="section-title">Почему именно ты?</h2>
+      
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">✨</div>
+          <h3>Твоя красота</h3>
+          <p>Уффф, какая же ты сочненькая, такая красивая 😝😝</p>
+        </article>
+        <article class="card">
+          <div class="icon">🫶</div>
+          <h3>Твои шутки</h3>
+          <p>Твои шутки про человека-горчицу~~ Ох ебать, я угараю с твоих шуток. Я РЕВУ 😭</p>
+        </article>
+        <article class="card">
+          <div class="icon">🌙</div>
+          <h3>Твоя внешность</h3>
+          <p>У тебя самые большие ~~сис~~ глаза 💋</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter" id="letter">
+    <div class="wrap">
+      <h2 class="section-title">Письмо для Вали</h2>
+      <p class="section-subtitle">То, что иногда проще написать, чем сказать вслух.</p>
+
+      <div class="letter-paper">
+        <p>Валя,</p>
+        <p>
+          я не знаю, можно ли вообще подобрать правильные слова,
+          чтобы описать, насколько ты мне дорога. Поэтому скажу просто:
+          <strong>я люблю тебя.</strong>
+        </p>
+        <p>
+          Мне хочется смеяться с тобой, гулять с тобой, обсуждать всякие
+          глупости, поддерживать тебя, когда тебе тяжело, и радоваться
+          вместе с тобой, когда всё хорошо.
+        </p>
+        <p>
+          Спасибо тебе за то, что ты есть в моей жизни. За твой голос,
+          твой характер, твои взгляды и за все моменты, которые становятся
+          особенными просто потому, что в них есть ты.
+        </p>
+        <p>
+          
+        </p>
+        <div class="signature">Твой человек ♥</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise">
+    <div class="wrap">
+      <h2 class="section-title">И ещё кое-что</h2>
+      <p class="section-subtitle">
+        Я не обещаю, что каждый день будет идеальным.
+        Но обещаю стараться делать наши дни счастливыми.
+      </p>
+      <div class="promise-box">
+        «Из всех историй я бы снова выбрал ту,
+        в которой встретил тебя.»
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Сделано с любовью специально для Вали · ∞
+  </footer>
+
+</body>
+</html>
